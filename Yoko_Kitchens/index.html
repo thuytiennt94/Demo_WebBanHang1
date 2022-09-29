@@ -22,7 +22,124 @@
 <body>
     <div class="wrapper">
         <header class="">
+            <section class="women-banner spad">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-3 product-large set-bg " data-setbg="front/img/products/women-large.jpg">
+                            <h2>Women's</h2>
+                            <a href="#">Discover More</a>
+                        </div>
+                        <div class="col-lg-8 offset-lg-1">
+                            <div class="filter-control">
+                                <ul>
+                                    <li class="item active"  data-tag="*" data-category="women">All</li>
+                                    <li class="item" data-tag=".Clothing" data-category="women">Clothings</li>
+                                    <li class="item" data-tag=".HandBag" data-category="women">HandBag</li>
+                                    <li class="item" data-tag=".Shoes" data-category="women">Shoes</li>
+                                    <li class="item" data-tag=".Accessories" data-category="women">Accessories</li>
+                                </ul>
+                            </div>
+                            <div class="product-slider owl-carousel">
+                                @foreach($womenProducts as $womenProduct)
+                                <div class="product-item item {{ $womenProduct->tag }}">
+                                    <div class="pi-pic">
+                                        <img src="front/img/products/{{ $womenProduct->productImages[0]->path }}" alt="">
+                                        @if($womenProduct->discount != null)
+                                        <div class="sale">Sale</div>
+                                        @endif
 
+                                        <div class="icon">
+                                            <i class="icon_heart_alt"></i>
+                                        </div>
+                                        <ul>
+                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="product.html">+ Quick View</a></li>
+                                            <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pi-text">
+                                        <div class="category-name">{{ $womenProduct->tag }}</div>
+                                        <a href="">
+                                            <h5>{{ $womenProduct->name }}</h5>
+                                        </a>
+                                        <div class="product-price">
+                                            @if($womenProduct->discount != null)
+                                            ${{ $womenProduct->discount }}
+                                            <span>${{ $womenProduct->price }}</span>
+                                            @else
+                                            ${{ $womenProduct->price }}
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+
+            <!-- Man Banner section begin -->
+            <section class="man-banner spad">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-8 ">
+                            <div class="filter-control">
+                                <ul>
+                                    <li class="item active"  data-tag="*" data-category="man">All</li>
+                                    <li class="item" data-tag=".Clothing" data-category="man">Clothings</li>
+                                    <li class="item" data-tag=".HandBag" data-category="man">HandBag</li>
+                                    <li class="item" data-tag=".Shoes" data-category="man">Shoes</li>
+                                    <li class="item" data-tag=".Accessiories" data-category="man">Accessories</li>
+                                </ul>
+                            </div>
+                            <div class="product-slider owl-carousel">
+                                @foreach($menProducts as $menProduct)
+                                <div class="product-item item {{ $menProducts->tag }}">
+                                    <div class="pi-pic">
+                                        <img src="front/img/products/{{ $menProduct->productImages[0]->path }}" alt="">
+                                        @if($menProduct->discount != null)
+                                        <div class="sale">Sale</div>
+                                        @endif
+
+                                        <div class="icon">
+                                            <i class="icon_heart_alt"></i>
+                                        </div>
+                                        <ul>
+                                            <li class="w-icon active"><a href=""><i class="icon_bag_alt"></i></a></li>
+                                            <li class="quick-view"><a href="product.html">+ Quick View</a></li>
+                                            <li class="w-icon"><a href=""><i class="fa fa-random"></i></a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="pi-text">
+                                        <div class="category-name">{{ $menProduct->tag }}</div>
+                                        <a href="">
+                                            <h5>{{ $menProduct->name }}</h5>
+                                        </a>
+                                        <div class="product-price">
+                                            @if($menProduct->discount != null)
+                                            ${{ $menProduct->discount }}
+                                            <span>${{ $menProduct->price }}</span>
+                                            @else
+                                            ${{ $menProduct->price }}
+                                            @endif
+                                        </div>
+                                    </div>
+                                </div>
+                                @endforeach
+                            </div>
+                        </div>
+                        <div class="col-lg-3 offset-lg-1 product-large set-bg " data-setbg="front/img/products/man-large.jpg">
+                            <h2>Men's</h2>
+                            <a href="#">Discover More</a>
+                        </div>
+
+                    </div>
+                </div>
+            </section>
+            <!-- Man Banner section end -->
         </header>
     </div>
 </body>
